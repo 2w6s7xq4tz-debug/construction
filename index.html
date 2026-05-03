@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FP Construction | Agrimensura, Ingeniería y Construcción</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap');
+        
+        :root {
+            --fp-dark: #0a0f1d;
+            --fp-green: #2ecc71;
+            --fp-accent: #00ff95;
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        .bg-fp-dark { background-color: var(--fp-dark); }
+        .text-fp-accent { color: var(--fp-accent); }
+        
+        .hero-section {
+            background: linear-gradient(rgba(10, 15, 29, 0.65), rgba(10, 15, 29, 0.85)), 
+                        url('fondo.png'), url('fondo.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        .glass {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .card-service:hover {
+            border-color: var(--fp-accent);
+            transform: translateY(-10px);
+        }
+
+        .const-card {
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .const-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+
+        .const-icon-bg {
+            transition: all 0.5s ease;
+        }
+
+        .const-card:hover .const-icon-bg {
+            background-color: var(--fp-accent);
+            color: var(--fp-dark);
+            transform: scale(1.1);
+        }
+
+        /* Estilo para el logo sin fondo blanco */
+        .logo-clean {
+            mix-blend-mode: lighten;
+            filter: brightness(1.2);
+        }
+
+        @media (max-width: 768px) {
+            .hero-section {
+                background-attachment: scroll;
+            }
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-900">
+
+    <!-- Cabecera / Navegación -->
+    <header class="fixed w-full z-50 bg-fp-dark/90 backdrop-blur-md border-b border-white/10">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <div class="p-1">
+                    <img src="https://blogger.googleusercontent.com/img/a/AVvXsEgkk7LQD6GHbdyvzWnQvddw99b69oPQq_o6nqpqY03KnVwe_vvbWbpAeE_6H47oY0b3qHY9dOsb1B6r8aNprkEe8KraWyGBqGEWC-AREBXXl43nJwvvorAKM0gYoNuvRL9wPdadhM-BhnpJaRqB3J2eyq3L8fnvv_KA8cuN5sAc4nXoHwUBB_dCSpe_pxs" alt="FP Construction Logo" class="h-14 w-auto object-contain logo-clean">
+                </div>
+                <div class="flex flex-col leading-none">
+                    <span class="text-white font-extrabold text-xl tracking-tight uppercase">FP Construction</span>
+                    <span class="text-fp-accent text-[10px] font-bold tracking-[0.2em] uppercase">Ingeniería Mensuras & Más</span>
+                </div>
+            </div>
+            
+            <nav class="hidden md:flex items-center gap-8 text-white/80 text-sm font-semibold uppercase tracking-wider">
+                <a href="#inicio" class="hover:text-fp-accent transition">Inicio</a>
+                <a href="#mensuras" class="hover:text-fp-accent transition">Mensuras</a>
+                <a href="#construccion" class="hover:text-fp-accent transition">Construcción</a>
+                <a href="#proyectos" class="hover:text-fp-accent transition">Proyectos</a>
+                <a href="https://wa.me/18298385485" class="bg-fp-accent text-fp-dark px-5 py-2.5 rounded-full font-bold hover:scale-105 transition shadow-lg shadow-fp-accent/20">WhatsApp</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Sección Hero -->
+    <section id="inicio" class="hero-section min-h-screen flex items-center pt-20">
+        <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center w-full">
+            <div class="text-white">
+                <div class="inline-block px-4 py-1.5 bg-fp-accent/20 border border-fp-accent/30 rounded-full text-fp-accent text-xs font-bold uppercase tracking-widest mb-6">
+                    Calidad y Precisión Técnica
+                </div>
+                <h1 class="text-5xl md:text-7xl font-extrabold mb-6 leading-[1.1]">
+                    Expertos en <br><span class="text-fp-accent">Agrimensura</span> & Obras
+                </h1>
+                <p class="text-lg text-slate-300 mb-10 max-w-lg leading-relaxed">
+                    Soluciones integrales en deslindes, planos y construcción civil. Transformamos su visión en estructuras sólidas y legalmente seguras.
+                </p>
+                <div class="flex flex-wrap gap-4">
+                    <a href="https://wa.me/18298385485" class="px-8 py-4 bg-fp-accent text-fp-dark font-black rounded-2xl hover:shadow-[0_0_30px_rgba(0,255,149,0.5)] transition-all text-center">
+                        Contáctanos ahora
+                    </a>
+                    <a href="#proyectos" class="px-8 py-4 glass text-white font-bold rounded-2xl hover:bg-white/10 transition text-center">
+                        Galería de trabajos
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Mensuras -->
+    <section id="mensuras" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-16 gap-4 border-b pb-8 border-slate-100">
+                <div class="max-w-xl">
+                    <h2 class="text-4xl font-extrabold text-fp-dark mb-4 uppercase tracking-tighter">Servicios de Agrimensura</h2>
+                    <p class="text-slate-500">Tramitaciones legales y técnicas con agrimensores altamente calificados ante la jurisdicción inmobiliaria.</p>
+                </div>
+                <div class="bg-fp-accent/10 text-fp-accent px-4 py-2 rounded-lg font-bold text-sm uppercase">Equipos de Precisión</div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="p-8 bg-slate-50 rounded-2xl border-l-4 border-fp-accent card-service transition-all shadow-sm">
+                    <h4 class="font-bold text-xl mb-3 text-fp-dark">Deslinde</h4>
+                    <p class="text-sm text-slate-600">Determinación legal de los límites exactos de su propiedad en el terreno.</p>
+                </div>
+                <div class="p-8 bg-slate-50 rounded-2xl border-l-4 border-fp-accent card-service transition-all shadow-sm">
+                    <h4 class="font-bold text-xl mb-3 text-fp-dark">Saneamiento</h4>
+                    <p class="text-sm text-slate-600">Regularización de terrenos para la obtención del Certificado de Título.</p>
+                </div>
+                <div class="p-8 bg-slate-50 rounded-2xl border-l-4 border-fp-accent card-service transition-all shadow-sm">
+                    <h4 class="font-bold text-xl mb-3 text-fp-dark">Refundición</h4>
+                    <p class="text-sm text-slate-600">Integración de múltiples parcelas colindantes en un solo cuerpo.</p>
+                </div>
+                <div class="p-8 bg-slate-50 rounded-2xl border-l-4 border-fp-accent card-service transition-all shadow-sm">
+                    <h4 class="font-bold text-xl mb-3 text-fp-dark">Tasación</h4>
+                    <p class="text-sm text-slate-600">Valoración comercial y técnica de inmuebles para diversos fines.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Construcción e Ingeniería -->
+    <section id="construccion" class="py-24 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-[#0a0f1d] text-4xl md:text-5xl font-black uppercase tracking-tighter mb-4">Construcción e Ingeniería</h2>
+                <div class="w-24 h-2 bg-[#00ff95] mx-auto rounded-full mb-6"></div>
+                <p class="text-slate-500 max-w-2xl mx-auto text-lg">Desarrollamos proyectos sólidos con los más altos estándares de calidad, seguridad y diseño arquitectónico.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Diseño y Planos -->
+                <div class="const-card bg-white p-8 rounded-[2.5rem] border border-slate-200 group">
+                    <div class="const-icon-bg w-16 h-16 bg-slate-100 rounded-2xl flex items-center justify-center text-3xl text-[#00ff95] mb-8">
+                        <i class="fas fa-pencil-ruler"></i>
+                    </div>
+                    <h3 class="text-2xl font-black text-[#0a0f1d] mb-4">Diseño y Planos</h3>
+                    <p class="text-slate-500 leading-relaxed">Elaboración de planos arquitectónicos y estructurales detallados, optimizando espacios y cumpliendo normativas.</p>
+                    <div class="mt-8 pt-6 border-t border-slate-100 flex items-center text-[#00ff95] font-bold">
+                        <span>Ver más</span>
+                        <i class="fas fa-chevron-right ml-2 text-xs group-hover:ml-4 transition-all"></i>
+                    </div>
+                </div>
+
+                <!-- Construcciones Civiles -->
+                <div class="const-card bg-white p-8 rounded-[2.5rem] border border-slate-200 group">
+                    <div class="const-icon-bg w-16 h-16 bg-slate-100 rounded-2xl flex items-center justify-center text-3xl text-[#00ff95] mb-8">
+                        <i class="fas fa-building"></i>
+                    </div>
+                    <h3 class="text-2xl font-black text-[#0a0f1d] mb-4">Obras Civiles</h3>
+                    <p class="text-slate-500 leading-relaxed">Ejecución de edificaciones residenciales y comerciales con supervisión técnica constante en cada etapa.</p>
+                    <div class="mt-8 pt-6 border-t border-slate-100 flex items-center text-[#00ff95] font-bold">
+                        <span>Ver más</span>
+                        <i class="fas fa-chevron-right ml-2 text-xs group-hover:ml-4 transition-all"></i>
+                    </div>
+                </div>
+
+                <!-- Remodelaciones -->
+                <div class="const-card bg-white p-8 rounded-[2.5rem] border border-slate-200 group">
+                    <div class="const-icon-bg w-16 h-16 bg-slate-100 rounded-2xl flex items-center justify-center text-3xl text-[#00ff95] mb-8">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <h3 class="text-2xl font-black text-[#0a0f1d] mb-4">Remodelaciones</h3>
+                    <p class="text-slate-500 leading-relaxed">Transformamos sus espacios existentes con acabados modernos y soluciones estructurales eficientes.</p>
+                    <div class="mt-8 pt-6 border-t border-slate-100 flex items-center text-[#00ff95] font-bold">
+                        <span>Ver más</span>
+                        <i class="fas fa-chevron-right ml-2 text-xs group-hover:ml-4 transition-all"></i>
+                    </div>
+                </div>
+
+                <!-- Presupuestos -->
+                <div class="const-card bg-white p-8 rounded-[2.5rem] border border-slate-200 group">
+                    <div class="const-icon-bg w-16 h-16 bg-slate-100 rounded-2xl flex items-center justify-center text-3xl text-[#00ff95] mb-8">
+                        <i class="fas fa-calculator"></i>
+                    </div>
+                    <h3 class="text-2xl font-black text-[#0a0f1d] mb-4">Presupuestos</h3>
+                    <p class="text-slate-500 leading-relaxed">Análisis detallado de costos y materiales para garantizar la viabilidad financiera de su inversión.</p>
+                    <div class="mt-8 pt-6 border-t border-slate-100 flex items-center text-[#00ff95] font-bold">
+                        <span>Ver más</span>
+                        <i class="fas fa-chevron-right ml-2 text-xs group-hover:ml-4 transition-all"></i>
+                    </div>
+                </div>
+
+                <!-- Movimiento de Tierra -->
+                <div class="const-card bg-white p-8 rounded-[2.5rem] border border-slate-200 group">
+                    <div class="const-icon-bg w-16 h-16 bg-slate-100 rounded-2xl flex items-center justify-center text-3xl text-[#00ff95] mb-8">
+                        <i class="fas fa-truck-pickup"></i>
+                    </div>
+                    <h3 class="text-2xl font-black text-[#0a0f1d] mb-4">Mov. de Tierra</h3>
+                    <p class="text-slate-500 leading-relaxed">Preparación de terrenos, excavaciones y rellenos con maquinaria pesada y precisión topográfica.</p>
+                    <div class="mt-8 pt-6 border-t border-slate-100 flex items-center text-[#00ff95] font-bold">
+                        <span>Ver más</span>
+                        <i class="fas fa-chevron-right ml-2 text-xs group-hover:ml-4 transition-all"></i>
+                    </div>
+                </div>
+
+                <!-- Supervisión -->
+                <div class="const-card bg-white p-8 rounded-[2.5rem] border border-slate-200 group">
+                    <div class="const-icon-bg w-16 h-16 bg-slate-100 rounded-2xl flex items-center justify-center text-3xl text-[#00ff95] mb-8">
+                        <i class="fas fa-hard-hat"></i>
+                    </div>
+                    <h3 class="text-2xl font-black text-[#0a0f1d] mb-4">Supervisión</h3>
+                    <p class="text-slate-500 leading-relaxed">Control riguroso de calidad y tiempos de ejecución para asegurar que la obra cumpla lo pactado.</p>
+                    <div class="mt-8 pt-6 border-t border-slate-100 flex items-center text-[#00ff95] font-bold">
+                        <span>Ver más</span>
+                        <i class="fas fa-chevron-right ml-2 text-xs group-hover:ml-4 transition-all"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Galería -->
+    <section id="proyectos" class="py-24 bg-fp-dark">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-extrabold text-white mb-4 uppercase tracking-tighter">Nuestros Trabajos</h2>
+                <div class="w-20 h-1.5 bg-fp-accent mx-auto rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="group relative overflow-hidden rounded-2xl aspect-video bg-slate-800 shadow-xl">
+                    <img src="WhatsApp Image 2026-04-07 at 9.38.25 PM.jpeg" class="w-full h-full object-cover group-hover:scale-110 transition duration-700" alt="Supervisión">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-6">
+                        <span class="text-white font-bold text-sm uppercase tracking-wider">Estructura de Losa Nervada</span>
+                    </div>
+                </div>
+                <div class="group relative overflow-hidden rounded-2xl aspect-video bg-slate-800 shadow-xl">
+                    <img src="WhatsApp Image 2026-04-07 at 9.36.47 PM.jpeg" class="w-full h-full object-cover group-hover:scale-110 transition duration-700" alt="Fachada">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-6">
+                        <span class="text-white font-bold text-sm uppercase tracking-wider">Fachadas ACM</span>
+                    </div>
+                </div>
+                <div class="group relative overflow-hidden rounded-2xl aspect-video bg-slate-800 shadow-xl">
+                    <img src="WhatsApp Image 2026-04-07 at 9.21.36 PM (2).jpeg" class="w-full h-full object-cover group-hover:scale-110 transition duration-700" alt="Interiores">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-6">
+                        <span class="text-white font-bold text-sm uppercase tracking-wider">Terminaciones</span>
+                    </div>
+                </div>
+                <div class="group relative overflow-hidden rounded-2xl aspect-video bg-slate-800 shadow-xl">
+                    <img src="WhatsApp Image 2026-04-07 at 9.37.03 PM.png" class="w-full h-full object-cover group-hover:scale-110 transition duration-700" alt="Diseño">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-6">
+                        <span class="text-white font-bold text-sm uppercase tracking-wider">Kiosco Comercial Cedeño</span>
+                    </div>
+                </div>
+                <div class="group relative overflow-hidden rounded-2xl aspect-video bg-slate-800 shadow-xl">
+                    <img src="WhatsApp Image 2026-04-07 at 9.21.36 PM (1).jpeg" class="w-full h-full object-cover group-hover:scale-110 transition duration-700" alt="Ingeniería">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-6">
+                        <span class="text-white font-bold text-sm uppercase tracking-wider">Construcción con Pilares</span>
+                    </div>
+                </div>
+                <div class="group relative overflow-hidden rounded-2xl aspect-video bg-slate-800 shadow-xl">
+                    <img src="WhatsApp Image 2026-04-07 at 9.21.36 PM.jpeg" class="w-full h-full object-cover group-hover:scale-110 transition duration-700" alt="Residencial">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-6">
+                        <span class="text-white font-bold text-sm uppercase tracking-wider">Proyectos Residenciales</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pie de Página Rediseñado -->
+    <footer class="bg-[#050810] text-white overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6 py-20">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+                <!-- Columna 1: Branding -->
+                <div class="space-y-6">
+                    <div class="flex items-center gap-3">
+                        <img src="https://blogger.googleusercontent.com/img/a/AVvXsEgkk7LQD6GHbdyvzWnQvddw99b69oPQq_o6nqpqY03KnVwe_vvbWbpAeE_6H47oY0b3qHY9dOsb1B6r8aNprkEe8KraWyGBqGEWC-AREBXXl43nJwvvorAKM0gYoNuvRL9wPdadhM-BhnpJaRqB3J2eyq3L8fnvv_KA8cuN5sAc4nXoHwUBB_dCSpe_pxs" alt="FP" class="h-16 w-auto logo-clean">
+                        <div class="flex flex-col">
+                            <span class="font-black text-2xl tracking-tighter leading-none">FP CONSTRUCTION</span>
+                            <span class="text-fp-accent text-[10px] uppercase tracking-widest mt-1">Ingeniería Mensuras & Más</span>
+                        </div>
+                    </div>
+                    <p class="text-slate-400 text-sm leading-relaxed max-w-xs">
+                        Líderes en soluciones técnicas de ingeniería y agrimensura en toda la República Dominicana. Calidad, precisión y transparencia en cada proyecto.
+                    </p>
+                    <div class="flex gap-4">
+                        <a href="https://www.instagram.com/designer.ssf15/" class="w-10 h-10 bg-white/5 rounded-full flex items-center justify-center hover:bg-fp-accent hover:text-fp-dark transition-all">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://www.instagram.com/designer.ssf15/" class="w-10 h-10 bg-white/5 rounded-full flex items-center justify-center hover:bg-fp-accent hover:text-fp-dark transition-all">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://wa.me/18298385485" class="w-10 h-10 bg-white/5 rounded-full flex items-center justify-center hover:bg-fp-accent hover:text-fp-dark transition-all">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Columna 2: Enlaces Rápidos -->
+                <div class="space-y-6">
+                    <h4 class="text-lg font-bold border-l-4 border-fp-accent pl-4">Navegación</h4>
+                    <ul class="space-y-3 text-slate-400 text-sm">
+                        <li><a href="#inicio" class="hover:text-fp-accent transition">Inicio</a></li>
+                        <li><a href="#mensuras" class="hover:text-fp-accent transition">Agrimensura</a></li>
+                        <li><a href="#construccion" class="hover:text-fp-accent transition">Construcción</a></li>
+                        <li><a href="#proyectos" class="hover:text-fp-accent transition">Galería de Proyectos</a></li>
+                    </ul>
+                </div>
+
+                <!-- Columna 3: Contacto -->
+                <div class="space-y-6">
+                    <h4 class="text-lg font-bold border-l-4 border-fp-accent pl-4">Contacto</h4>
+                    <ul class="space-y-4 text-slate-400 text-sm">
+                        <li class="flex items-start gap-3">
+                            <i class="fas fa-map-marker-alt text-fp-accent mt-1"></i>
+                            <span>Sede Central,<br>República Dominicana</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fas fa-phone-alt text-fp-accent"></i>
+                            <div>
+                                <p>829-838-5485</p>
+                                <p>829-222-5180</p>
+                            </div>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fas fa-envelope text-fp-accent"></i>
+                            <span>info@fpconstructionrd.com</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Columna 4: CTA -->
+                <div class="space-y-6">
+                    <h4 class="text-lg font-bold border-l-4 border-fp-accent pl-4">Presupuesto</h4>
+                    <p class="text-sm text-slate-400">¿Tienes un proyecto en mente? Solicita una consulta gratuita hoy mismo.</p>
+                    <a href="https://wa.me/18298385485" class="bg-fp-accent text-fp-dark block text-center py-4 rounded-xl font-black uppercase tracking-widest hover:scale-105 transition shadow-lg shadow-fp-accent/20">
+                        <i class="fab fa-whatsapp mr-2"></i> Cotizar Ahora
+                    </a>
+                </div>
+            </div>
+
+            <!-- Footer Bottom -->
+            <div class="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4 text-center">
+                <p class="text-slate-500 text-xs uppercase tracking-[0.2em]">&copy; 2026 FP Construction RD. Todos los derechos reservados.</p>
+                <div class="flex gap-6 text-slate-500 text-xs uppercase tracking-widest">
+                    <a href="https://www.instagram.com/designer.ssf15/" class="hover:text-white transition">Creado por @DESIGNER.SSF15</a>
+                    <a href="privacidad.html" class="hover:text-white transition">Privacidad</a>
+                    <a href="terminos.html" class="hover:text-white transition">Términos</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
